@@ -12,20 +12,13 @@ function App() {
     const numbers = ['0','1','2','3','4','5','6','7','8','9'];
     const specialChar = ['@','#','$','%','&','*','+','/','-','[',']','?'];
     
-    const lens = 10;
+    let lens = 10;
+    let arr = [capitalLetters, smallLetter, numbers, specialChar];
     let myPassword = '';
-
-    /*for(let i = 0; i <= lens; i++){
-      myPassword += capitalLetters[Math.floor(Math.random() * capitalLetters.length)]
-      +specialChar[Math.floor(Math.random() * specialChar.length)]
-      +numbers[Math.floor(Math.random() * numbers.length)]
-      +smallLetter[Math.floor(Math.random() * smallLetter.length)];
-    }*/
-    while(myPassword.length < lens){
-      myPassword += capitalLetters[Math.floor(Math.random() * capitalLetters.length)]
-      +specialChar[Math.floor(Math.random() * specialChar.length)]
-      +numbers[Math.floor(Math.random() * numbers.length)]
-      +smallLetter[Math.floor(Math.random() * smallLetter.length)];
+    while(lens > 0){
+      let randomArray = Math.floor(Math.random()*arr.length);
+      myPassword += arr[randomArray][Math.floor(Math.random() * arr[randomArray].length)];
+      lens -= 1;
     }
     return myPassword;
     
